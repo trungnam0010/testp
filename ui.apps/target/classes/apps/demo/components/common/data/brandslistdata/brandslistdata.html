@@ -1,0 +1,124 @@
+<div data-sly-test.editMode="${wcmmode.edit}"><h2 class="meditor-text" data-sly-use.i18nUser="${'com.marui.voi.core.models.I18nUserUtils' @ key='Brand List Data'}">----- ${i18nUser.value} -----</h2></div>
+<sly data-sly-use.brandListDataComp="com.marui.voi.core.models.BrandListDataComp"/>
+<sly data-sly-test="${properties.style == 'sale'}">
+    <div class="cmp-brand-list" id="${properties.componentID}">
+        <div class="${properties.cssclass} r-brand-block">
+            <div class="r-category" id="${brandListDataComp.id}">
+                <ul data-sly-list="${brandListDataComp.brandListIndexs}" class="r-datenav">
+                    <li class="${item.selected}"><a class="r-off3" href="#${item.id}">${item.text}</a></li>
+                </ul>
+                <div class="r-parent clearfix">
+	                <div class="r-child clearfix">
+	                    <ul data-sly-list="${brandListDataComp.brandListItems}" class="r-brandlist text1 clearfix">
+	                        <li class="${item.css}">
+	                            <a class="r-off1 r-id${item.brandId} r-bitembox r-begin" href="${item.pcHref}">
+	                                <span class="r-sp ${item.imageCss} ${item.imagePositionCss}"></span>
+	                                <span class="r-title text1">${item.pcName}</span>
+	                                <span class="r-date text2 r-open">${item.date}</span>
+	                                <span class="r-icate">${item.category}</span>
+	                            </a>
+	                        </li>
+	                    </ul>
+	                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</sly>
+
+<sly data-sly-test="${properties.style == 'coupon'}">
+    <div class="cmp-brand-list" id="${properties.componentID}">
+    	<div class="wrap-brand-content">
+	        <div id="${brandListDataComp.id}" class="wrap-content ${properties.cssclass}">
+	        	<sly data-sly-list="${brandListDataComp.brandListIndexs}">
+	            	<p data-sly-test="${item.selected}" class="ttl-char">${item.text}</p>
+	            </sly>
+	            <sly data-sly-test="brandListDataComp.brandListItems">
+	            	${('<div class="wrap-inner r-first"><ul class="list-brand clearfix">') @ context="unsafe"}
+	            </sly>
+	            <sly data-sly-list="${brandListDataComp.brandListItems}">
+	            	<li class="${item.index == 5 ? 'last' : ''}">
+                        <a href="${item.pcHref}" class="r-shopurl">
+	                        <span class="r-logo"><img src="${item.image}" alt="" width="120" border="0"></span>
+	                        <span class="r-name">${item.pcName}</span>
+                        </a>
+                    </li>
+                    <sly data-sly-test="${item.index == 5 && !item.css}">
+                    	${('</ul></div><div class="wrap-inner"><ul class="list-brand clearfix">') @ context="unsafe"}
+                    </sly>
+                    <sly data-sly-test="${item.css == 'last'}">
+                    	${('</ul></div>') @ context="unsafe"}
+                    </sly>
+	            </sly>
+	    	</div>
+    	</div>
+    </div>
+</sly>
+
+<sly data-sly-test="${properties.style == 'limitedSale'}">
+    <div class="cmp-brand-list ${properties.cssclass}" id="${properties.componentID}">
+    	<div class="wrap-brand-content">
+   			<sly data-sly-list="${brandListDataComp.brandListIndexs}">
+            	<sly data-sly-test="${item.selected}">
+            		<div id="${brandListDataComp.id}" name="${brandListDataComp.id}"></div>
+            		<h2 class="m-header-brands"><img src="${item.image}" width="80" height="33" alt="${item.text}"></h2>
+            	</sly>
+            </sly>
+            <sly data-sly-test="brandListDataComp.brandListItems">
+            	${('<div class="m_group_first clearfix">') @ context="unsafe"}
+            </sly>
+	        <sly data-sly-list="${brandListDataComp.brandListItems}">
+	        	<div class="m_brands ${item.index == 5 ? 'm_last' : ''}">
+	                <div class="m_brands_logo">
+	                    <a href="${item.pcHref}">
+	                        <img src="${item.image}" width="170" height="80" alt="${item.pcName}">
+	                    </a>
+	                </div>
+	                <p><a href="${item.pcHref}">${item.pcName}</a></p>
+	            </div>
+	            <sly data-sly-test="${item.index == 5 && !item.css}">
+                	${('</div><div class="m_group_next clearfix">') @ context="unsafe"}
+                </sly>
+                <sly data-sly-test="${item.css == 'last'}">
+                	${('</div>') @ context="unsafe"}
+                </sly>
+	        </sly>
+        </div>
+    </div>
+</sly>
+
+<sly data-sly-test="${properties.style == 'favorite'}">
+    <div class="cmp-brand-list" id="${properties.componentID}">
+        <div id="${brandListDataComp.id}" class="wrap-brand-content ${properties.cssclass}">
+            <div class="wrap-content">
+            	<sly data-sly-list="${brandListDataComp.brandListIndexs}">
+	            	<p data-sly-test="${item.selected}" class="ttl-char">${item.text}</p>
+	            </sly>
+	            <sly data-sly-test="brandListDataComp.brandListItems">
+	            	${('<div class="wrap-inner r-first"><ul class="list-shop clearfix">') @ context="unsafe"}
+	            </sly>
+	            <sly data-sly-list="${brandListDataComp.brandListItems}">
+	            	<li class="${item.index == 5 ? 'last' : ''}">
+		               	<div>
+		                    <a href="${item.pcHref}" class="r-shopurl">
+		                        <span class="r-logo"><img src="${item.image}" alt="" width="120" border="0"></span>
+		                        <span class="r-name">${item.pcName}</span>
+		                    </a>
+		                    <sly data-sly-test="${item.enablefavorite}">
+		                    	<a class="btn-wishlist" href="javascript:void(0)" data-brand_id="${item.favoriteName}">
+			                        <img src="/etc/designs/voi/clientlibs/images/brand/btn_optinshop.gif" width="154" alt="お気に入りショップ登録">
+			                    </a>
+		                    </sly>
+		                </div>
+	            	</li>
+	            	<sly data-sly-test="${item.index == 5 && !item.css}">
+                    	${('</div><div class="wrap-inner"><ul class="list-shop clearfix">') @ context="unsafe"}
+                    </sly>
+                    <sly data-sly-test="${item.css == 'last'}">
+                    	${('</div>') @ context="unsafe"}
+                    </sly>
+	            </sly>
+            </div>
+        </div>
+    </div>
+</sly>

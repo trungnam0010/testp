@@ -1,0 +1,11 @@
+<div data-sly-test.editMode="${wcmmode.edit}"><h2 class="meditor-text" data-sly-use.i18nUser="${'com.marui.voi.core.models.I18nUserUtils' @ key='Image'}">----- ${i18nUser.value} -----</h2></div>
+<div data-sly-use.heelo="com.sutrix.demo.core.models.hello">
+	<!-- <a data-sly-use.linkUtils="${'com.marui.voi.core.models.LinkUtils' @ 
+	    link=properties.linkURL, openNewWindow=properties.openNewWindow}"
+	     href="${linkUtils.link || '#'}"
+	     title="${properties.linkTitle}"
+	     target="${linkUtils.target}" data-sly-unwrap="${!properties.linkURL}">
+		<img src="${!properties.enableLazyLoad ? imageComp.fileReference : ''}" data-original="${properties.enableLazyLoad ? imageComp.fileReference : ''}" alt="${properties.alt}" class="${properties.enableHoverEffect ? 'hover-effect' : ''} ${properties.enableLazyLoad ? 'lazyload' : ''}">
+	</a> -->
+	<p data-sly-unwrap="${!properties.caption}">${properties.caption}</p>
+</div>

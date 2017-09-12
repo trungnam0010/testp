@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Basic"
+    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+    <items jcr:primaryType="nt:unstructured">
+        <column
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+            <items jcr:primaryType="nt:unstructured" 
+                sling:hideChildren="[title,moretitles,onofftime,vanityurl]">
+                <basic
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Page-Basic Configuration"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                    <items jcr:primaryType="nt:unstructured">
+                        <pagename
+                            cq:showOnCreate="{Boolean}true"
+                            cq:hideOnEdit="{Boolean}true"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/form/textfield"
+                            fieldLabel="Page-Name"
+                            fieldDescription="Page-Name description"
+                            name="pageName"
+                            required="{Boolean}true"
+                            validation="admin.formfieldname"/>
+                        <title
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/form/textfield"
+                            cq-msm-lockable="jcr:title"
+                            fieldLabel="Page-Title"
+                            fieldDescription="Page-Title description"
+                            name="./jcr:title"
+                            required="{Boolean}true"/>
+                        <metaKeyword
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/form/textfield"
+                            fieldLabel="Page-Meta Tag Keyword"
+                            fieldDescription="Page-Meta Tag Keyword description"
+                            name="./metaKeyword"
+                            value="ファッション, 通販, マルイ, 0101, oioi"
+                            required="{Boolean}true"/>
+                        <metaDescription
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/form/textarea"
+                            fieldLabel="Page-Meta Tag Description"
+                            fieldDescription="Page-Meta Tag Description description"
+                            name="./metaDescription"
+                            required="{Boolean}true"/>
+                        <msmConfigEndpoint
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/form/hidden"
+                            class="msm-config-endpoint"
+                            value="${empty param.item ? requestPathInfo.suffix : param.item }"/>
+                        <charset
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/form/hidden"
+                            allowBulkEdit="{Boolean}true"
+                            ignoreData="{Boolean}true"
+                            name="_charset_"
+                            value="utf-8"/>
+                        <firstOpen
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/form/hidden"
+                            name="./firstOpen"
+                            value="1"/>
+                    </items>
+                </basic>
+                <refFiles
+                    cq:showOnCreate="{Boolean}false"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Page-Reference File"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                    <items jcr:primaryType="nt:unstructured">
+                         <css
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/form/multifield"
+                            fieldDescription="Page-CSS description"
+                            fieldLabel="Page-CSS">
+                            <field
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                name="./cssFilePath"/>
+                         </css>
+                         <javascript
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/form/multifield"
+                            fieldDescription="Page-JavaScript description"
+                            fieldLabel="Page-JavaScript">
+                            <field
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                name="./jsFilePath"/>
+                         </javascript>
+                    </items>
+                </refFiles>
+                <include
+                     cq:showOnCreate="{Boolean}true"
+                     jcr:primaryType="nt:unstructured"
+                     jcr:title="Page-Include"
+                     sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                     <items jcr:primaryType="nt:unstructured">
+                         <authoringArea
+                             cq:showOnCreate="{Boolean}true"
+                             jcr:primaryType="nt:unstructured"
+                             sling:resourceType="granite/ui/components/foundation/form/select"
+                             fieldLabel="Page-Authoring Area"
+                             fieldDescription="Page-Authoring Area description"
+                             name="./authoringArea">
+                                 <items jcr:primaryType="nt:unstructured">
+                                     <all
+                                         jcr:primaryType="nt:unstructured"
+                                         text="Page-Authoring Area Manage the entire page"
+                                         value="_all"/>
+                                     <body
+                                         jcr:primaryType="nt:unstructured"
+                                         text="Page-Authoring Area Manage internal content only"
+                                         value="_body"/>
+                                  </items>
+                          </authoringArea>
+                          <enableIncludeHeader
+                              cq:showOnCreate="{Boolean}false"
+                              jcr:primaryType="nt:unstructured"
+                              sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                              fieldDescription="Page-Include Header Content description"
+                              name="./enableIncludeHeader"
+                              text="Page-Include Header Content"
+                              value="true"/>
+                          <enableIncludeFooter
+                              cq:showOnCreate="{Boolean}false"
+                              jcr:primaryType="nt:unstructured"
+                              sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                              fieldDescription="Page-Include Footer Content description"
+                              name="./enableIncludeFooter"
+                              text="Page-Include Footer Content"
+                              value="true"/>
+                          <ontime
+                              jcr:primaryType="nt:unstructured"
+                              sling:resourceType="granite/ui/components/foundation/form/datepicker"
+                              allowBulkEdit="{Boolean}true"
+                              displayedFormat="YYYY-MM-DD HH:mm"
+                              displayTimezoneMessage="{Boolean}true"
+                              fieldLabel="Page-Release Date"
+                              fieldDescription="Page-Release Date description"
+                              name="./ontime"
+                              type="datetime"
+                              required="{Boolean}true"/>
+                          <offtime
+                              cq:showOnCreate="{Boolean}false"
+                              jcr:primaryType="nt:unstructured"
+                              sling:resourceType="granite/ui/components/foundation/form/datepicker"
+                              allowBulkEdit="{Boolean}true"
+                              displayedFormat="YYYY-MM-DD HH:mm"
+                              displayTimezoneMessage="{Boolean}true"
+                              fieldLabel="Page-Release End Date"
+                              fieldDescription="Page-Release End Date description"
+                              name="./offtime"
+                              type="datetime"/>
+                     </items>
+                 </include>
+            </items>
+        </column>
+    </items>
+</jcr:root>

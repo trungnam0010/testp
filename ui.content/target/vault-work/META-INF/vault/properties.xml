@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Demo - UI content</comment>
+<entry key="createdBy">nam.ldt</entry>
+<entry key="name">demo.ui.content</entry>
+<entry key="created">2017-09-06T11:34:09.216+0700</entry>
+<entry key="groupId">com.sutrix.demo</entry>
+<entry key="version">1.0-SNAPSHOT</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">Sutrix Solutions</entry>
+<entry key="description">UI content package for Demo</entry>
+<entry key="artifactId">demo.ui.content</entry>
+<entry key="path">/etc/packages/Sutrix Solutions/demo.ui.content.zip</entry>
+</properties>
