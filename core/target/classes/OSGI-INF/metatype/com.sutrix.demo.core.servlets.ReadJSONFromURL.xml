@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/com.sutrix.demo.core.servlets.ReadJSONFromURL">
-    <OCD id="com.sutrix.demo.core.servlets.ReadJSONFromURL" name="%com.sutrix.demo.core.servlets.ReadJSONFromURL.name" description="%com.sutrix.demo.core.servlets.ReadJSONFromURL.description"/>
-    <Designate pid="com.sutrix.demo.core.servlets.ReadJSONFromURL">
-        <Object ocdref="com.sutrix.demo.core.servlets.ReadJSONFromURL"/>
-    </Designate>
-</metatype:MetaData>
